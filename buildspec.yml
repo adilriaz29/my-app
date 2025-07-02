@@ -1,7 +1,14 @@
 version: 0.2
+
 phases:
+  install:
+    runtime-versions:
+      python: 3.11          # default image already has this
   build:
     commands:
-      - echo "(No build needed)"
+      - echo "Running integration test (status check)…"
+      - chmod +x tests/integration_status.sh
+      - ./tests/integration_status.sh
+
 artifacts:
   files: '**/*'
